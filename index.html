@@ -6,6 +6,12 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="#641d35" name="theme-color"/>
 <meta content="Agende seu horário com Anna Gabrielly. Manicure, beleza e cuidado em cada detalhe." name="description"/>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Anna Gabrielly">
 <title>ANNA GABRIELLY | Nail Designer</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"
  onerror="this.onerror=null;this.src='https://unpkg.com/@supabase/supabase-js@2/dist/umd/supabase.min.js'"></script>
@@ -800,6 +806,16 @@ async function carregarFotoPerfil(){
 carregarFotoPerfil();
 carregarFotoFundo();
 iniciar();
+</script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('./sw.js').catch(function (err) {
+      console.warn('Não foi possível registrar o modo aplicativo:', err);
+    });
+  });
+}
 </script>
 </body>
 </html>
