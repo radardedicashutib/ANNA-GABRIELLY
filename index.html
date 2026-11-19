@@ -1,20 +1,25 @@
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="#641d35" name="theme-color"/>
-<meta content="Agende seu horário com Anna Gabrielly. Manicure, beleza e cuidado em cada detalhe." name="description"/>
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
-<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="theme-color" content="#641d35"/>
+<meta name="description" content="Agende seu horário com Anna Gabrielly. Manicure, beleza e cuidado em cada detalhe."/>
+
+<!-- APLICATIVO PWA -->
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" sizes="192x192" href="ícone-192.png">
+<link rel="apple-touch-icon" href="ícone-192.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Anna Gabrielly">
+
 <title>ANNA GABRIELLY | Nail Designer</title>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"
- onerror="this.onerror=null;this.src='https://unpkg.com/@supabase/supabase-js@2/dist/umd/supabase.min.js'"></script>
+onerror="this.onerror=null;this.src='https://unpkg.com/@supabase/supabase-js@2/dist/umd/supabase.min.js'"></script>
+
 <script>
 document.addEventListener('click',function(ev){
  const link=ev.target.closest('a[href^="#"]');
@@ -26,9 +31,11 @@ document.addEventListener('click',function(ev){
  }
 });
 </script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=DM+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
 <style>
 :root{
  --wine:#641d35;--wine2:#3c1425;--rose:#f5e7e9;--rose2:#ead0d5;
@@ -152,7 +159,6 @@ footer .dourado{color:var(--gold-light);letter-spacing:5px}
  .pix-public-actions{flex-direction:column}
  .pix-public-actions .btn{width:100%}
 }
-
 .anna-profile-wrap{display:flex;align-items:center;gap:13px;margin:0 0 24px;color:var(--gold);font-size:10px;letter-spacing:2.5px}
 .anna-profile-frame{width:76px;height:76px;border:2px solid var(--gold);padding:4px;border-radius:50%;background:#fff;flex:none}
 .anna-profile-frame img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
@@ -169,17 +175,21 @@ footer .dourado{color:var(--gold-light);letter-spacing:5px}
 .admin-manager-block{padding:16px 0;border-bottom:1px solid var(--line)}
 .admin-manager-block:last-child{border-bottom:0}
 .admin-manager-block h4{color:var(--wine);margin:0 0 10px}
-.admin-manager-block input[type=file]{display:block;margin:10px 0 16px;max-width:100%}.gallery-upload-slots{display:grid;grid-template-columns:1fr;gap:8px}.gallery-upload-slots input{padding:10px;border:1px dashed var(--gold);background:#fff}
+.admin-manager-block input[type=file]{display:block;margin:10px 0 16px;max-width:100%}
+.gallery-upload-slots{display:grid;grid-template-columns:1fr;gap:8px}
+.gallery-upload-slots input{padding:10px;border:1px dashed var(--gold);background:#fff}
 .admin-service-row{padding:12px;margin:10px 0;border:1px solid var(--line);background:white;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .service-card{cursor:pointer;transition:transform .2s,box-shadow .2s}
 .service-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
 .service-card .choose-service{margin-top:14px}
-.pix-public-actions .btn, .admin-manager-block .btn{min-height:48px}
+.pix-public-actions .btn,.admin-manager-block .btn{min-height:48px}
 @media(max-width:760px){.pix-public-actions{flex-direction:column}.pix-public-actions .btn{width:100%}.anna-profile-wrap{margin-bottom:18px}}
 </style>
 </head>
+
 <body>
 <div class="topbar">Beleza • Cuidado • Elegância</div>
+
 <header>
 <div class="header-inner">
 <div class="logo">ANNA GABRIELLY<small>NAIL DESIGNER</small></div>
@@ -188,8 +198,10 @@ footer .dourado{color:var(--gold-light);letter-spacing:5px}
 <a href="#galeria">GALERIA</a>
 <a href="#agendamento">AGENDAMENTO</a>
 <a class="nav-cta" href="#agendamento">RESERVE SEU HORÁRIO</a>
-<a href="#pix-info">PIX</a></nav>
+<a href="#pix-info">PIX</a>
+</nav>
 </div>
+
 <div class="hero">
 <div class="hero-copy">
 <div class="anna-profile-wrap">
@@ -198,7 +210,6 @@ footer .dourado{color:var(--gold-light);letter-spacing:5px}
 </div>
 <span>ANNA GABRIELLY · NAIL DESIGNER</span>
 </div>
-
 <div class="eyebrow">Seu momento de autocuidado</div>
 <h1>Unhas lindas.<br/><em>Você ainda mais.</em></h1>
 <div class="gold-line"></div>
@@ -216,6 +227,7 @@ footer .dourado{color:var(--gold-light);letter-spacing:5px}
 </div>
 </div>
 </header>
+
 <main>
 <div class="container">
 <div class="intro-strip">
@@ -224,6 +236,7 @@ footer .dourado{color:var(--gold-light);letter-spacing:5px}
 <div class="intro-item"><strong>Agendamento online</strong><span>Escolha seu melhor horário</span></div>
 </div>
 </div>
+
 <section class="content-section services-wrap" id="servicos-section">
 <div class="container">
 <div class="section-heading">
@@ -235,6 +248,7 @@ footer .dourado{color:var(--gold-light);letter-spacing:5px}
 <div class="service-grid" id="servicos"><div class="service-card">Carregando serviços...</div></div>
 </div>
 </section>
+
 <section class="content-section" id="galeria">
 <div class="container">
 <div class="section-heading">
@@ -244,13 +258,13 @@ footer .dourado{color:var(--gold-light);letter-spacing:5px}
 <p>Cada unha recebe atenção especial. Confira alguns resultados feitos pela Anna.</p>
 </div>
 <div class="gallery-grid">
-
 <figure class="gallery-item"><img alt="Unhas pretas com glitter e pedrarias" decoding="async" loading="lazy" src="galeria-unhas-1.jpg"/><figcaption>Brilho &amp; sofisticação</figcaption></figure>
 <figure class="gallery-item"><img alt="Unhas nude com francesinha amarela" decoding="async" loading="lazy" src="galeria-unhas-2.jpg"/><figcaption>Delicadeza colorida</figcaption></figure>
 <figure class="gallery-item"><img alt="Unhas decoradas com esmaltação artística" decoding="async" loading="lazy" src="galeria-unhas-3.jpg"/><figcaption>Arte em cada detalhe</figcaption></figure>
 </div>
 </div>
 </section>
+
 <section class="content-section pix-info-section" id="pix-info">
 <div class="container">
 <div class="pix-public-card">
@@ -266,6 +280,7 @@ footer .dourado{color:var(--gold-light);letter-spacing:5px}
 </div>
 </div>
 </section>
+
 <section class="content-section booking-area" id="agendamento">
 <div class="container">
 <div class="section-heading">
@@ -286,6 +301,7 @@ footer .dourado{color:var(--gold-light);letter-spacing:5px}
 <button class="btn" onclick="reservar()">CONFIRMAR AGENDAMENTO</button>
 <p class="small">A reserva fica pendente por 15 minutos enquanto o pagamento é realizado e confirmado pela profissional.</p>
 </div>
+
 <section class="payment-card hidden" id="pagamento">
 <h3>Pagamento via Pix</h3>
 <p>Para realizar o pagamento, utilize a chave Pix abaixo:</p>
@@ -296,6 +312,7 @@ footer .dourado{color:var(--gold-light);letter-spacing:5px}
 </section>
 </div>
 </section>
+
 <section class="content-section">
 <div class="container">
 <div class="section-heading">
@@ -306,6 +323,7 @@ footer .dourado{color:var(--gold-light);letter-spacing:5px}
 </div>
 </div>
 </section>
+
 <section class="content-section admin-area" id="area-admin">
 <div class="container">
 <div class="section-heading">
@@ -325,12 +343,14 @@ footer .dourado{color:var(--gold-light);letter-spacing:5px}
 <div class="admin-site-manager" id="adminSiteManager">
 <hr/>
 <h3>Gerenciar o site</h3><p class="small">Anna pode atualizar fotos, horários de atendimento, serviços e preços por aqui.</p>
+
 <div class="admin-manager-block">
 <h4>Foto de fundo principal</h4>
 <p class="small">Escolha uma foto do celular para substituir o fundo vinho por uma imagem profissional. Envie um arquivo JPG ou PNG de até 8 MB.</p>
 <input accept="image/*" id="annaHeroFile" type="file"/>
 <button class="btn" onclick="uploadFotoPrincipal()" type="button">ALTERAR FOTO DE FUNDO</button>
 </div>
+
 <div class="admin-manager-block">
 <h4>Horários de atendimento</h4>
 <p class="small">Anna pode adicionar horários por dia da semana e remover horários que não atende mais.</p>
@@ -341,12 +361,14 @@ footer .dourado{color:var(--gold-light);letter-spacing:5px}
 <button class="btn" onclick="adicionarHorario()" type="button">ADICIONAR HORÁRIO</button>
 <div id="adminHorarios"></div>
 </div>
+
 <div class="admin-manager-block">
 <h4>Foto de perfil da Anna</h4>
 <p class="small">Escolha uma foto no celular e envie para aparecer no site público. Requer o bucket público "site-assets" no Supabase Storage.</p>
 <input accept="image/*" id="annaProfileFile" type="file"/>
 <button class="btn" onclick="uploadFotoAnna()" type="button">ENVIAR FOTO DE PERFIL</button>
 </div>
+
 <div class="admin-manager-block">
 <h4>Adicionar fotos à galeria</h4>
 <p class="small">Adicione até 5 fotos por envio diretamente da galeria do celular. Elas serão exibidas na galeria pública.</p>
@@ -363,6 +385,7 @@ footer .dourado{color:var(--gold-light);letter-spacing:5px}
 <button class="btn" onclick="uploadFotosGaleria()" type="button">ENVIAR FOTOS</button>
 <div id="adminGaleria"></div>
 </div>
+
 <div class="admin-manager-block">
 <h4>Cadastrar serviço</h4>
 <label for="novoServicoNome">Nome do serviço</label>
@@ -378,24 +401,26 @@ footer .dourado{color:var(--gold-light);letter-spacing:5px}
 </div>
 </section>
 </main>
+
 <footer>
 <div class="footer-logo">ANNA GABRIELLY</div>
 <p>NAIL DESIGNER • Beleza feita com carinho e dedicação.</p>
 <span class="dourado">✦ ✦ ✦</span>
 </footer>
+
 <script>
 // CONFIGURAÇÃO SUPABASE
 const SUPABASE_URL = "https://hminkpxieanfifflqkfs.supabase.co";
-// IMPORTANTE: mantenha aqui a chave PUBLICÁVEL (anon/publicable) do projeto Supabase.
 const SUPABASE_KEY = "sb_publishable_QmPOBFsG4h4GsFj_6I8Swg_TZFPXqcr";
 
 if(!window.supabase || typeof window.supabase.createClient!=='function'){
  const area=document.getElementById('servicos');
  const mensagem='<div class="service-card"><h3>Conexão temporariamente indisponível</h3><p>Não foi possível carregar o módulo de agendamento. Verifique a internet e tente novamente.</p><button class="btn" type="button" onclick="location.reload()">TENTAR NOVAMENTE</button></div>';
  if(area) area.innerHTML=mensagem;
- console.error('Supabase JS SDK não carregou. Os endereços CDN foram tentados, mas nenhum disponibilizou a biblioteca.');
+ console.error('Supabase JS SDK não carregou.');
  throw new Error('Supabase JS SDK não carregou.');
 }
+
 const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 let servicos = [];
@@ -434,7 +459,6 @@ async function iniciar(){
   await carregarGaleria();
   if(c.data?.site_name) document.title = c.data.site_name + ' | Nail Designer';
   if(s.error){
-   console.error('Detalhe técnico do Supabase (services):',s.error);
    $('servicos').innerHTML='<div class="service-card"><h3>Não foi possível carregar os serviços</h3><p>O site abriu, mas o Supabase não liberou a leitura da tabela de serviços. Confira a tabela services e a política de leitura pública (RLS) no Supabase.</p><button class="btn" type="button" onclick="iniciar()">TENTAR NOVAMENTE</button></div>';
   } else if(!servicos.length){
    $('servicos').innerHTML='<div class="service-card"><h3>Serviços em breve</h3><p>Anna ainda não cadastrou serviços ativos. Acesse a área administrativa para cadastrar.</p></div>';
@@ -533,7 +557,7 @@ async function reservar(){
   });
   if(error)throw error;
   const novo=Array.isArray(resultado)?resultado[0]:resultado;
-  if(!novo?.id){throw new Error('A função de agendamento não retornou o identificador da reserva.');}
+  if(!novo?.id)throw new Error('A função de agendamento não retornou o identificador da reserva.');
   reservaAtual={id:novo.id,expires_at:novo.expires_at,customer_name:nome,customer_phone:telefone,service_name:servico.name,price:servico.price};
   $('pagamento').classList.remove('hidden');
   $('statusPagamento').textContent='Reserva pendente. Você tem até o horário indicado para efetuar o Pix.';
@@ -573,7 +597,7 @@ function iniciarContagem(){
 async function copiarPix(){
  const chave=String(configuracoes.pix_key||'+5511954556081').trim();
  try{
-  if(navigator.clipboard && window.isSecureContext){await navigator.clipboard.writeText(chave);}
+  if(navigator.clipboard && window.isSecureContext)await navigator.clipboard.writeText(chave);
   else{
    const campo=document.createElement('textarea');campo.value=chave;campo.setAttribute('readonly','');
    campo.style.position='fixed';campo.style.opacity='0';document.body.appendChild(campo);campo.select();
@@ -635,7 +659,6 @@ async function sairAdmin(){
  $('login').classList.remove('hidden');
 }
 
-
 function atualizarDadosPix(){
  const chave=String(configuracoes.pix_key||'+5511954556081');
  const visivel=$('pixPublicKey');if(visivel)visivel.textContent=chave;
@@ -664,9 +687,19 @@ async function listarServicosAdmin(){
   const label=document.createElement('span');label.textContent=s.name+' — R$ '+Number(s.price).toFixed(2).replace('.',',')+(s.active?' · Ativo':' · Inativo');
   const priceInput=document.createElement('input');priceInput.type='number';priceInput.min='0';priceInput.step='0.01';priceInput.value=Number(s.price).toFixed(2);priceInput.setAttribute('aria-label','Novo preço de '+s.name);priceInput.style.maxWidth='130px';
   const savePrice=document.createElement('button');savePrice.type='button';savePrice.className='btn';savePrice.textContent='SALVAR PREÇO';
-  savePrice.onclick=async()=>{const value=Number(priceInput.value);if(!Number.isFinite(value)||value<0){alert('Informe um preço válido.');return;}const {error}=await db.from('services').update({price:value}).eq('id',s.id);if(error){console.error(error);alert('Não foi possível alterar o preço. Confira as permissões da tabela services.');return;}alert('Preço atualizado!');await iniciar();listarServicosAdmin();};
+  savePrice.onclick=async()=>{
+   const value=Number(priceInput.value);
+   if(!Number.isFinite(value)||value<0){alert('Informe um preço válido.');return;}
+   const {error}=await db.from('services').update({price:value}).eq('id',s.id);
+   if(error){console.error(error);alert('Não foi possível alterar o preço. Confira as permissões da tabela services.');return;}
+   alert('Preço atualizado!');await iniciar();listarServicosAdmin();
+  };
   const toggle=document.createElement('button');toggle.type='button';toggle.className='btn';toggle.textContent=s.active?'DESATIVAR':'ATIVAR';
-  toggle.onclick=async()=>{const {error}=await db.from('services').update({active:!s.active}).eq('id',s.id);if(error){alert('Não foi possível alterar o serviço. Verifique as permissões.');return;}await iniciar();listarServicosAdmin();};
+  toggle.onclick=async()=>{
+   const {error}=await db.from('services').update({active:!s.active}).eq('id',s.id);
+   if(error){alert('Não foi possível alterar o serviço. Verifique as permissões.');return;}
+   await iniciar();listarServicosAdmin();
+  };
   row.append(label,priceInput,savePrice,toggle);area.append(row);
  });
 }
@@ -676,7 +709,6 @@ async function carregarGaleria(){
  if(!area)return;
  const {data,error}=await db.from('gallery').select('id,image_url,caption,active,sort_order').eq('active',true).order('sort_order').order('created_at');
  if(error){console.error('Erro ao carregar galeria:',error);return;}
- // Se ainda não houver fotos cadastradas, preserva as imagens demonstrativas já existentes.
  if(!data||!data.length)return;
  area.innerHTML='';
  data.forEach(item=>{
@@ -749,9 +781,18 @@ async function listarHorariosAdmin(){
   const row=document.createElement('div');row.className='admin-service-row';
   const label=document.createElement('span');label.textContent=(dias[Number(item.weekday)]||'Dia')+' — '+String(item.available_time).slice(0,5)+(item.active?' · Ativo':' · Inativo');
   const toggle=document.createElement('button');toggle.type='button';toggle.className='btn';toggle.textContent=item.active?'DESATIVAR':'ATIVAR';
-  toggle.onclick=async()=>{const {error}=await db.from('business_hours').update({active:!item.active}).eq('id',item.id);if(error){alert('Não foi possível alterar esse horário.');return;}await iniciar();await listarHorariosAdmin();};
+  toggle.onclick=async()=>{
+   const {error}=await db.from('business_hours').update({active:!item.active}).eq('id',item.id);
+   if(error){alert('Não foi possível alterar esse horário.');return;}
+   await iniciar();await listarHorariosAdmin();
+  };
   const del=document.createElement('button');del.type='button';del.className='btn';del.textContent='EXCLUIR';
-  del.onclick=async()=>{if(!confirm('Excluir este horário?'))return;const {error}=await db.from('business_hours').delete().eq('id',item.id);if(error){alert('Não foi possível excluir.');return;}await iniciar();await listarHorariosAdmin();};
+  del.onclick=async()=>{
+   if(!confirm('Excluir este horário?'))return;
+   const {error}=await db.from('business_hours').delete().eq('id',item.id);
+   if(error){alert('Não foi possível excluir.');return;}
+   await iniciar();await listarHorariosAdmin();
+  };
   row.append(label,toggle,del);area.append(row);
  });
 }
@@ -765,13 +806,18 @@ async function adicionarHorario(){
 }
 
 async function uploadFotoPrincipal(){
- const file=$('annaHeroFile')?.files?.[0];if(!file){alert('Escolha uma foto primeiro.');return;}
- if(!file.type.startsWith('image/')){alert('Selecione uma imagem.');return;}if(file.size>8*1024*1024){alert('A imagem deve ter até 8 MB.');return;}
- const {data:sessionData}=await db.auth.getSession();if(!sessionData?.session){alert('Entre no painel antes de alterar a foto.');return;}
+ const file=$('annaHeroFile')?.files?.[0];
+ if(!file){alert('Escolha uma foto primeiro.');return;}
+ if(!file.type.startsWith('image/')){alert('Selecione uma imagem.');return;}
+ if(file.size>8*1024*1024){alert('A imagem deve ter até 8 MB.');return;}
+ const {data:sessionData}=await db.auth.getSession();
+ if(!sessionData?.session){alert('Entre no painel antes de alterar a foto.');return;}
  const ext=(file.name.split('.').pop()||'jpg').toLowerCase().replace(/[^a-z0-9]/g,'')||'jpg';
- const path='site-hero.jpg';const {error}=await db.storage.from('site-assets').upload(path,file,{upsert:true,contentType:file.type});
+ const path='site-hero.jpg';
+ const {error}=await db.storage.from('site-assets').upload(path,file,{upsert:true,contentType:file.type});
  if(error){console.error(error);alert('Não foi possível enviar. Confira se o bucket público site-assets existe e permite upload para usuários autenticados.');return;}
- const {data}=db.storage.from('site-assets').getPublicUrl(path);document.querySelector('header').style.background='linear-gradient(90deg,rgba(42,7,22,.88),rgba(72,10,31,.58)),url("'+data.publicUrl+'?v='+Date.now()+'") center/cover no-repeat';
+ const {data}=db.storage.from('site-assets').getPublicUrl(path);
+ document.querySelector('header').style.background='linear-gradient(90deg,rgba(42,7,22,.88),rgba(72,10,31,.58)),url("'+data.publicUrl+'?v='+Date.now()+'") center/cover no-repeat';
  alert('Foto de fundo atualizada. Para manter a imagem em todos os visitantes, o site usa o arquivo do Storage.');
 }
 
@@ -792,8 +838,16 @@ async function uploadFotoAnna(){
 }
 
 async function carregarFotoFundo(){
- try{const {data}=db.storage.from('site-assets').getPublicUrl('site-hero.jpg');if(data?.publicUrl){const img=new Image();img.onload=()=>{document.querySelector('header').style.background='linear-gradient(90deg,rgba(42,7,22,.88),rgba(72,10,31,.58)),url("'+data.publicUrl+'?v='+Date.now()+'") center/cover no-repeat';};img.src=data.publicUrl+'?v='+Date.now();}}
- catch(e){console.warn('Foto de fundo personalizada ainda não configurada.',e);}
+ try{
+  const {data}=db.storage.from('site-assets').getPublicUrl('site-hero.jpg');
+  if(data?.publicUrl){
+   const img=new Image();
+   img.onload=()=>{
+    document.querySelector('header').style.background='linear-gradient(90deg,rgba(42,7,22,.88),rgba(72,10,31,.58)),url("'+data.publicUrl+'?v='+Date.now()+'") center/cover no-repeat';
+   };
+   img.src=data.publicUrl+'?v='+Date.now();
+  }
+ }catch(e){console.warn('Foto de fundo personalizada ainda não configurada.',e);}
 }
 
 async function carregarFotoPerfil(){
@@ -808,14 +862,16 @@ carregarFotoFundo();
 iniciar();
 </script>
 
+<!-- REGISTRO DO SERVICE WORKER -->
 <script>
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function () {
-    navigator.serviceWorker.register('./sw.js').catch(function (err) {
-      console.warn('Não foi possível registrar o modo aplicativo:', err);
-    });
+ window.addEventListener('load', function () {
+  navigator.serviceWorker.register('./sw.js').catch(function (err) {
+   console.warn('Não foi possível registrar o modo aplicativo:', err);
   });
+ });
 }
 </script>
+
 </body>
 </html>
