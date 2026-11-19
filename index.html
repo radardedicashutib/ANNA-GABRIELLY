@@ -1,1 +1,525 @@
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#641d35">
+<title>ANNA GABRIELLY | Manicure</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+:root {
+  --vinho:#641d35;
+  --rosa:#f8e5eb;
+  --dourado:#c5a052;
+  --texto:#38232b;
+  --fundo:#fffaf9;
+}
+*{box-sizing:border-box}
+body{
+ margin:0;background:var(--fundo);color:var(--texto);
+ font-family:Arial,sans-serif;
+}
+header{
+ background:var(--vinho);color:white;text-align:center;
+ padding:35px 15px;
+ border-bottom:4px solid var(--dourado);
+}
+header h1{font-family:Georgia,serif;font-size:32px;margin:5px}
+header p{color:#f6dce5}
+.container{max-width:850px;margin:auto;padding:20px}
+.card{
+ background:white;padding:22px;margin:18px 0;
+ border-radius:15px;border:1px solid #f0dce2;
+ box-shadow:0 4px 15px #641d3510;
+}
+h2{color:var(--vinho);font-family:Georgia,serif}
+button,.btn{
+ background:var(--vinho);color:white;border:0;
+ border-radius:9px;padding:13px 18px;
+ font-size:15px;cursor:pointer;
+}
+button:hover,.btn:hover{opacity:.88}
+input,select{
+ width:100%;padding:13px;margin:8px 0 15px;
+ border:1px solid #dfcbd1;border-radius:8px;
+ font-size:16px;background:white;
+}
+label{font-weight:bold;color:var(--vinho)}
+.servico{
+ display:flex;justify-content:space-between;
+ gap:10px;padding:13px 0;border-bottom:1px solid #eee;
+}
+.preco{color:var(--vinho);font-weight:bold}
+.dourado{color:var(--dourado)}
+.aviso{
+ background:var(--rosa);padding:15px;
+ border-radius:10px;margin:12px 0;
+}
+.horarios{display:flex;flex-wrap:wrap;gap:9px}
+.horarios button{background:#f3e5e9;color:var(--vinho)}
+.horarios button.selecionado{background:var(--vinho);color:white}
+footer{text-align:center;padding:25px;background:var(--vinho);color:white}
+.hidden{display:none}
+.small{font-size:13px;color:#777}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="dourado">✦ Beleza, cuidado e elegância ✦</div>
+ <h1>ANNA GABRIELLY</h1>
+ <p>Seu momento de beleza começa aqui!</p>
+</header>
+
+<main class="container">
+
+<section class="card">
+ <h2>Bem-vinda!</h2>
+ <p>Agende seu horário e desfrute de um atendimento especial,
+ com carinho e dedicação.</p>
+ <div class="aviso">
+  <strong>Seu momento, sua beleza!</strong><br>
+  Escolha seu serviço e reserve seu horário.
+ </div>
+ <button onclick="document.getElementById('agendamento').scrollIntoView({behavior:'smooth'})">
+  AGENDAR MEU HORÁRIO
+ </button>
+</section>
+
+<section class="card">
+ <h2>Nossos serviços</h2>
+ <div id="servicos">Carregando serviços...</div>
+</section>
+
+<section class="card" id="agendamento">
+ <h2>Agende seu horário</h2>
+
+ <label>Seu nome completo</label>
+ <input id="nome" placeholder="Digite seu nome">
+
+ <label>WhatsApp com DDD</label>
+ <input id="telefone" type="tel" placeholder="(11) 99999-9999">
+
+ <label>Escolha o serviço</label>
+ <select id="servico">
+  <option value="">Selecione um serviço</option>
+ </select>
+
+ <label>Escolha a data</label>
+ <input id="data" type="date">
+
+ <label>Horários disponíveis</label>
+ <div id="horarios" class="horarios">
+  <p>Escolha uma data primeiro.</p>
+ </div>
+
+ <div id="resumo" class="aviso hidden"></div>
+
+ <button onclick="reservar()" style="width:100%">
+  CONFIRMAR AGENDAMENTO
+ </button>
+
+ <p class="small">
+  A reserva fica pendente por 15 minutos enquanto o pagamento
+  é realizado e confirmado pela profissional.
+ </p>
+</section>
+
+<section id="pagamento" class="card hidden">
+ <h2>Pagamento via Pix</h2>
+ <p>Para realizar o pagamento, utilize a chave Pix abaixo:</p>
+ <div class="aviso">
+  <strong>Chave Pix - Celular</strong>
+  <h3>+55 11 95455-6081</h3>
+  <button onclick="copiarPix()">COPIAR CHAVE PIX</button>
+ </div>
+ <p>Após pagar, aguarde a confirmação manual da Anna.</p>
+ <p id="statusPagamento"></p>
+ <button onclick="whatsappPagamento()">ENVIAR COMPROVANTE PELO WHATSAPP</button>
+</section>
+
+<section class="card">
+ <h2>Atendimento especial</h2>
+ <p>Será um prazer receber você!</p>
+ <p class="dourado">✦ ANNA GABRIELLY ✦</p>
+</section>
+
+<section class="card">
+ <h2>Área administrativa</h2>
+ <p class="small">Acesso exclusivo da profissional.</p>
+ <div id="login">
+  <label>E-mail administrativo</label>
+  <input id="emailAdmin" type="email" placeholder="E-mail">
+  <label>Senha</label>
+  <input id="senhaAdmin" type="password" placeholder="Senha">
+  <button onclick="entrarAdmin()">ENTRAR</button>
+ </div>
+ <div id="painel" class="hidden">
+  <h3>Agendamentos</h3>
+  <button onclick="carregarAdmin()">ATUALIZAR LISTA</button>
+  <div id="listaAdmin"></div>
+  <button onclick="sairAdmin()">SAIR DO PAINEL</button>
+ </div>
+</section>
+
+</main>
+
+<footer>
+ <p>ANNA GABRIELLY</p>
+ <p>Beleza feita com carinho e dedicação.</p>
+ <span class="dourado">✦ ✦ ✦</span>
+</footer>
+
+<script>
+// CONFIGURAÇÃO SUPABASE
+const SUPABASE_URL = "https://hminkpxieanfifflqkfs.supabase.co";
+const SUPABASE_KEY = "COLE_AQUI_SUA_CHAVE_PUBLICAVEL";
+
+const db = window.supabase.createClient(
+ SUPABASE_URL,
+ SUPABASE_KEY
+);
+
+let servicos = [];
+let horarios = [];
+let horarioEscolhido = null;
+let reservaAtual = null;
+let configuracoes = {};
+
+const $ = id => document.getElementById(id);
+
+function dataLocal(){
+ const d = new Date();
+ return new Date(d.getTime()-d.getTimezoneOffset()*60000)
+ .toISOString().slice(0,10);
+}
+
+async function iniciar(){
+ $('data').min = dataLocal();
+
+ const [s,h,c] = await Promise.all([
+  db.from('services').select('*').eq('active',true).order('name'),
+  db.from('business_hours').select('*').eq('active',true)
+   .order('weekday').order('available_time'),
+  db.from('site_settings').select('*').limit(1).single()
+ ]);
+
+ if(s.error) console.error(s.error);
+ if(h.error) console.error(h.error);
+ if(c.error) console.error(c.error);
+
+ servicos = s.data || [];
+ horarios = h.data || [];
+ configuracoes = c.data || {};
+
+ mostrarServicos();
+ mostrarOpcoes();
+
+ if(c.data?.site_name){
+  document.title = c.data.site_name + ' | Manicure';
+ }
+
+}
+
+function mostrarServicos(){
+ $('servicos').innerHTML = '';
+ $('servico').innerHTML = '<option value="">Selecione um serviço</option>';
+
+ servicos.forEach(s=>{
+  const item=document.createElement('div');
+  item.className='servico';
+
+  const nome=document.createElement('span');
+  nome.textContent=s.name;
+
+  const preco=document.createElement('span');
+  preco.className='preco';
+  preco.textContent='R$ '+Number(s.price).toFixed(2).replace('.',',');
+
+  item.append(nome,preco);
+  $('servicos').append(item);
+
+  const op=document.createElement('option');
+  op.value=s.id;
+  op.textContent=s.name+' - R$ '+Number(s.price).toFixed(2).replace('.',',');
+  $('servico').append(op);
+ });
+}
+
+function mostrarOpcoes(){
+ if(!servicos.length){
+  $('servicos').textContent='Nenhum serviço cadastrado.';
+ }
+}
+
+$('data').addEventListener('change', carregarHorarios);
+$('servico').addEventListener('change', atualizarResumo);
+
+function atualizarResumo(){
+ const s=servicos.find(x=>x.id===$('servico').value);
+ if(!s){$('resumo').classList.add('hidden');return}
+ $('resumo').classList.remove('hidden');
+ $('resumo').textContent='Serviço: '+s.name+
+ ' | Valor: R$ '+Number(s.price).toFixed(2).replace('.',',');
+}
+
+async function carregarHorarios(){
+ horarioEscolhido=null;
+ $('horarios').innerHTML='Carregando...';
+
+ const data=$('data').value;
+ if(!data)return;
+
+ if(data<dataLocal()){
+  $('horarios').textContent='Escolha uma data futura.';
+  return;
+ }
+
+ const dia=new Date(data+'T12:00:00').getDay();
+
+ const doDia=horarios.filter(h=>Number(h.weekday)===dia);
+
+ if(!doDia.length){
+  $('horarios').textContent='Não há horários disponíveis nesta data.';
+  return;
+ }
+
+ const {data:reservas,error}=await db.from('appointments')
+ .select('appointment_time,status,payment_status,expires_at')
+ .eq('appointment_date',data);
+
+ if(error){
+  $('horarios').textContent='Não foi possível consultar os horários.';
+  console.error(error);
+  return;
+ }
+
+ const agora=Date.now();
+
+ const ocupados=(reservas||[]).filter(r=>{
+  if(r.payment_status==='paid'||r.status==='confirmed')return true;
+  if(r.status==='cancelled')return false;
+  if(r.expires_at && new Date(r.expires_at).getTime()>agora)return true;
+  return false;
+ });
+
+ $('horarios').innerHTML='';
+
+ doDia.forEach(h=>{
+  const hora=String(h.available_time).slice(0,5);
+
+  const ocupado=ocupados.some(r=>
+   String(r.appointment_time).slice(0,5)===hora
+  );
+
+  if(ocupado)return;
+
+  const b=document.createElement('button');
+  b.textContent=hora;
+  b.onclick=()=>{
+   horarioEscolhido=hora;
+   document.querySelectorAll('.horarios button')
+   .forEach(x=>x.classList.remove('selecionado'));
+   b.classList.add('selecionado');
+  };
+  $('horarios').append(b);
+ });
+
+ if(!$('horarios').children.length){
+  $('horarios').textContent='Todos os horários estão reservados.';
+ }
+}
+
+async function reservar(){
+ const nome=$('nome').value.trim();
+ const telefone=$('telefone').value.trim();
+ const servico=servicos.find(s=>s.id===$('servico').value);
+ const data=$('data').value;
+
+ if(!nome||!telefone||!servico||!data||!horarioEscolhido){
+  alert('Preencha todos os campos e escolha um horário.');
+  return;
+ }
+
+ if(data<dataLocal()){
+  alert('Escolha uma data futura.');
+  return;
+ }
+
+ const agora=new Date();
+ const expiracao=new Date(agora.getTime()+15*60000);
+
+ const registro={
+  customer_name:nome,
+  customer_phone:telefone,
+  service_id:servico.id,
+  appointment_date:data,
+  appointment_time:horarioEscolhido,
+  duration_minutes:90,
+  status:'pending',
+  payment_status:'pending',
+  payment_method:'pix',
+  expires_at:expiracao.toISOString()
+ };
+
+ const {data:novo,error}=await db.from('appointments')
+ .insert(registro).select().single();
+
+ if(error){
+  console.error(error);
+  alert('Não foi possível reservar. Atualize os horários e tente novamente.');
+  await carregarHorarios();
+  return;
+ }
+
+ reservaAtual={
+  ...novo,
+  service_name:servico.name,
+  price:servico.price
+ };
+
+ $('pagamento').classList.remove('hidden');
+ $('statusPagamento').textContent='Reserva pendente. Você tem 15 minutos para efetuar o Pix.';
+
+ $('pagamento').scrollIntoView({behavior:'smooth'});
+ iniciarContagem();
+
+ await carregarHorarios();
+}
+
+let temporizador;
+
+function iniciarContagem(){
+ clearInterval(temporizador);
+ temporizador=setInterval(async()=>{
+  if(!reservaAtual)return;
+
+  const {data,error}=await db.from('appointments')
+  .select('status,payment_status,expires_at')
+  .eq('id',reservaAtual.id).single();
+
+  if(error)return;
+
+  if(data.payment_status==='paid'||data.status==='confirmed'){
+   $('statusPagamento').textContent='Pagamento confirmado! Seu horário está confirmado.';
+   clearInterval(temporizador);
+   return;
+  }
+
+  if(new Date(data.expires_at).getTime()<=Date.now()){
+   $('statusPagamento').textContent='O prazo da reserva terminou. Consulte os horários novamente.';
+   clearInterval(temporizador);
+   await carregarHorarios();
+  }
+ },5000);
+}
+
+function copiarPix(){
+ const chave=configuracoes.pix_key||'+5511954556081';
+ navigator.clipboard.writeText(chave)
+ .then(()=>alert('Chave Pix copiada!'))
+ .catch(()=>alert('Chave Pix: '+chave));
+}
+
+function whatsappPagamento(){
+ if(!reservaAtual)return;
+ const numero=String(configuracoes.whatsapp_number||'5511954556081').replace(/\D/g,'');
+ const mensagem='Olá, Anna! Acabei de realizar o pagamento Pix do meu agendamento. Meu nome é '+reservaAtual.customer_name+'.';
+ window.open('https://wa.me/'+numero+'?text='+encodeURIComponent(mensagem),'_blank');
+}
+
+// PAINEL ADMINISTRATIVO
+async function entrarAdmin(){
+ const email=$('emailAdmin').value.trim();
+ const senha=$('senhaAdmin').value;
+
+ if(!email||!senha){
+  alert('Informe e-mail e senha.');
+  return;
+ }
+
+ const {error}=await db.auth.signInWithPassword({
+  email,password:senha
+ });
+
+ if(error){
+  alert('Não foi possível entrar. Confira seu acesso administrativo.');
+  return;
+ }
+
+ $('login').classList.add('hidden');
+ $('painel').classList.remove('hidden');
+ carregarAdmin();
+}
+
+async function carregarAdmin(){
+ const {data,error}=await db.from('appointments')
+ .select('*,services(name,price)')
+ .order('appointment_date',{ascending:true})
+ .order('appointment_time',{ascending:true});
+
+ if(error){
+  alert('Erro ao carregar agendamentos. Verifique as permissões.');
+  console.error(error);
+  return;
+ }
+
+ $('listaAdmin').innerHTML='';
+
+ (data||[]).forEach(a=>{
+  const div=document.createElement('div');
+  div.className='card';
+
+  const titulo=document.createElement('strong');
+  titulo.textContent=a.customer_name+' - '+(a.services?.name||'Serviço');
+
+  const detalhes=document.createElement('p');
+  detalhes.textContent='Data: '+a.appointment_date+
+   ' | Horário: '+String(a.appointment_time).slice(0,5)+
+   ' | WhatsApp: '+a.customer_phone+
+   ' | Pagamento: '+a.payment_status;
+
+  const confirmar=document.createElement('button');
+  confirmar.textContent='CONFIRMAR PAGAMENTO';
+  confirmar.onclick=()=>atualizarReserva(a.id,{
+   status:'confirmed',payment_status:'paid'
+  });
+
+  const cancelar=document.createElement('button');
+  cancelar.textContent='CANCELAR RESERVA';
+  cancelar.style.background='#777';
+  cancelar.onclick=()=>atualizarReserva(a.id,{
+   status:'cancelled',payment_status:'cancelled'
+  });
+
+  div.append(titulo,detalhes,confirmar,cancelar);
+  $('listaAdmin').append(div);
+ });
+}
+
+async function atualizarReserva(id,alteracoes){
+ const {error}=await db.from('appointments')
+ .update(alteracoes).eq('id',id);
+
+ if(error){
+  alert('Não foi possível atualizar. Verifique as permissões.');
+  console.error(error);
+  return;
+ }
+
+ alert('Agendamento atualizado.');
+ carregarAdmin();
+}
+
+async function sairAdmin(){
+ await db.auth.signOut();
+ $('painel').classList.add('hidden');
+ $('login').classList.remove('hidden');
+}
+
+iniciar();
+</script>
+</body>
+</html>
+
