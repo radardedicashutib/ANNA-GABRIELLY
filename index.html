@@ -179,6 +179,57 @@ footer .dourado{color:var(--gold-light);letter-spacing:5px}
 
 .forgot-password{display:block;margin-top:12px;padding:8px 0;border:0;background:transparent;color:var(--wine);font-weight:700;text-decoration:underline;cursor:pointer}
 #recoveryPanel input{display:block;width:100%;margin:8px 0 14px;padding:14px;border:1px solid var(--line);font:inherit}
+
+/* Cartões rosados dos serviços — mantém textos, fontes e preços originais */
+.service-grid{gap:18px}
+.service-card{
+  appearance:none;
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(145deg,#fff9fb 0%,#fbeaf0 100%);
+  border:1px solid #e8c5d0;
+  border-radius:18px;
+  padding:25px 23px;
+  min-height:170px;
+  box-shadow:0 9px 24px rgba(120,54,79,.09);
+  color:var(--ink);
+  text-align:left;
+}
+.service-card:before{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;
+  height:5px;
+  background:linear-gradient(90deg,#d99aaa,#c5a052,#e8b9c7);
+}
+.service-card .service-mark{color:#c98298;font-size:30px}
+.service-card h3{color:#78364f;font:600 22px "Cormorant Garamond",Georgia,serif;margin:9px 0 7px}
+.service-card p{color:#8b6c78;font-size:12px;line-height:1.6;margin:0 0 13px}
+.service-card .preco{
+  display:inline-block;
+  margin-top:5px;
+  padding:8px 14px;
+  border-radius:999px;
+  background:#f2d8e1;
+  border:1px solid #e7bdcb;
+  color:#71334b;
+  font-size:15px;
+}
+.service-card .choose-service{
+  display:block;
+  margin-top:15px;
+  color:#a65f78;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:1.3px;
+}
+.service-card:hover{
+  transform:translateY(-4px);
+  border-color:#d99aaa;
+  box-shadow:0 14px 30px rgba(120,54,79,.15);
+}
+.service-card:focus-visible{outline:3px solid #d99aaa;outline-offset:3px}
+
 </style>
 </head>
 <body>
