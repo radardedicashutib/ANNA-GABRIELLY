@@ -239,9 +239,9 @@ footer .dourado{color:var(--gold-light);letter-spacing:5px}
 </div>
 <div class="gallery-grid">
 
-<figure class="gallery-item"><img alt="Unhas pretas com glitter e pedrarias" decoding="async" loading="lazy" src="https://hminkpxieanfifflqkfs.supabase.co/storage/v1/object/public/site-assets/IMG-20261119-WA0028.jpg"/><figcaption>Brilho &amp; sofisticação</figcaption></figure>
-<figure class="gallery-item"><img alt="Unhas nude com francesinha amarela" decoding="async" loading="lazy" src="https://hminkpxieanfifflqkfs.supabase.co/storage/v1/object/public/site-assets/IMG-20261119-WA0029.jpg"/><figcaption>Delicadeza colorida</figcaption></figure>
-<figure class="gallery-item"><img alt="Unhas decoradas com esmaltação artística" decoding="async" loading="lazy" src="https://hminkpxieanfifflqkfs.supabase.co/storage/v1/object/public/site-assets/IMG-20261119-WA0030.jpg"/><figcaption>Arte em cada detalhe</figcaption></figure>
+<figure class="gallery-item"><img alt="Unhas pretas com glitter e pedrarias" decoding="async" loading="lazy" src="galeria-unhas-1.jpg"/><figcaption>Brilho &amp; sofisticação</figcaption></figure>
+<figure class="gallery-item"><img alt="Unhas nude com francesinha amarela" decoding="async" loading="lazy" src="galeria-unhas-2.jpg"/><figcaption>Delicadeza colorida</figcaption></figure>
+<figure class="gallery-item"><img alt="Unhas decoradas com esmaltação artística" decoding="async" loading="lazy" src="galeria-unhas-3.jpg"/><figcaption>Arte em cada detalhe</figcaption></figure>
 </div>
 </div>
 </section>
@@ -701,7 +701,7 @@ async function uploadFotosGaleria(){
    const {error:uploadError}=await db.storage.from('site-assets').upload(path,file,{upsert:false,contentType:file.type});
    if(uploadError)throw uploadError;
    const {data:urlData}=db.storage.from('site-assets').getPublicUrl(path);
-   const {error:insertError}=await db.from('gallery').insert({image_url:urlData.publicUrl,caption:legenda||file.name.replace(/\.[^.]+$/,''),active:true,sort_order:Date.now()+i});
+   const {error:insertError}=await db.from('gallery').insert({image_url:urlData.publicUrl,caption:legenda||file.name.replace(/\.[^.]+$/,''),active:true,sort_order:Math.floor(Date.now()/1000)+i});
    if(insertError)throw insertError;
   }
   inputs.forEach(input=>{if(input)input.value='';});$('annaGalleryCaption').value='';
