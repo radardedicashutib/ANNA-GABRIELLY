@@ -37,7 +37,7 @@ button,input,select{font:inherit}
 button{cursor:pointer}
 a{color:inherit}
 .topbar{height:38px;background:var(--wine2);color:#f4e7d0;display:flex;align-items:center;justify-content:center;font-size:10px;letter-spacing:3px;text-transform:uppercase}
-header{position:relative;overflow:hidden;background:linear-gradient(120deg,rgba(42,13,27,.96),rgba(100,29,53,.94)),radial-gradient(circle at 80% 20%,#a66c6c,transparent 45%);color:white;padding:24px 22px 70px;border-bottom:1px solid var(--gold)}
+header{position:relative;overflow:hidden;background:linear-gradient(90deg,rgba(42,7,22,.88),rgba(72,10,31,.58)),url("fundo-anna.jpg") center/cover no-repeat;color:white;padding:24px 22px 70px;border-bottom:1px solid var(--gold)}
 .header-inner{max-width:1180px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .logo{font-family:"Cormorant Garamond",Georgia,serif;font-size:26px;letter-spacing:2px;font-weight:600}
 .logo small{display:block;font:10px "DM Sans",sans-serif;letter-spacing:4px;color:var(--gold-light);margin-top:2px}
@@ -45,8 +45,8 @@ header{position:relative;overflow:hidden;background:linear-gradient(120deg,rgba(
 .nav a{text-decoration:none;font-size:12px;letter-spacing:1px;color:#f8eaf0}
 .nav a:hover{color:var(--gold-light)}
 .nav .nav-cta{border:1px solid var(--gold);padding:11px 17px;border-radius:2px}
-.hero{max-width:1180px;margin:45px auto 0;display:grid;grid-template-columns:1.05fr .95fr;gap:45px;align-items:center;position:relative}
-.hero-copy{padding:20px 0}
+.hero{max-width:1180px;margin:45px auto 0;display:grid;grid-template-columns:1fr;gap:20px;align-items:center;position:relative}
+.hero-copy{padding:35px 0;max-width:700px}
 .eyebrow{color:var(--gold-light);font-size:11px;letter-spacing:4px;text-transform:uppercase}
 .hero h1{font:500 clamp(48px,7vw,82px)/.92 "Cormorant Garamond",Georgia,serif;margin:18px 0;color:#fff}
 .hero h1 em{font-weight:400;color:var(--gold-light)}
@@ -86,12 +86,6 @@ section.content-section{padding:78px 0}
 .gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
 .gallery-item:hover img{transform:scale(1.06)}
 .gallery-item figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 12px 12px;color:white;font-size:10px;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(transparent,rgba(35,12,23,.7))}
-.gallery-placeholder{display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,#f7ecee,#eadde0);border:1px dashed #c5a052;box-shadow:none;text-align:center;padding:18px}
-.gallery-placeholder-inner{display:flex;flex-direction:column;align-items:center;gap:12px;color:#641d35}
-.gallery-placeholder-inner span{font-size:34px;color:#c5a052}
-.gallery-placeholder-inner strong{font:600 23px "Cormorant Garamond",Georgia,serif}
-.gallery-placeholder-inner small{font-size:12px;line-height:1.6;color:#806b72;max-width:220px}
-
 .booking-area{background:linear-gradient(130deg,#451629,#70233e);color:white}
 .booking-area .section-heading h2{color:white}
 .booking-area .section-heading p{color:#e7d4dc}
@@ -131,7 +125,7 @@ footer .dourado{color:var(--gold-light);letter-spacing:5px}
 }
 @media(min-width:761px) and (max-width:980px){.gallery-grid{grid-template-columns:repeat(2,1fr)}}
 
-.hero-art{min-height:420px}
+.hero-art{display:none!important;min-height:420px}
 .hero-frame{height:420px;max-width:460px;background:#eadde0}
 .hero-frame img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;opacity:1;visibility:visible}
 .btn,button,.nav a{cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
@@ -169,67 +163,13 @@ footer .dourado{color:var(--gold-light);letter-spacing:5px}
 .admin-manager-block{padding:16px 0;border-bottom:1px solid var(--line)}
 .admin-manager-block:last-child{border-bottom:0}
 .admin-manager-block h4{color:var(--wine);margin:0 0 10px}
-.admin-manager-block input[type=file]{display:block;margin:10px 0 16px;max-width:100%}
+.admin-manager-block input[type=file]{display:block;margin:10px 0 16px;max-width:100%}.gallery-upload-slots{display:grid;grid-template-columns:1fr;gap:8px}.gallery-upload-slots input{padding:10px;border:1px dashed var(--gold);background:#fff}
 .admin-service-row{padding:12px;margin:10px 0;border:1px solid var(--line);background:white;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .service-card{cursor:pointer;transition:transform .2s,box-shadow .2s}
 .service-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
 .service-card .choose-service{margin-top:14px}
 .pix-public-actions .btn, .admin-manager-block .btn{min-height:48px}
 @media(max-width:760px){.pix-public-actions{flex-direction:column}.pix-public-actions .btn{width:100%}.anna-profile-wrap{margin-bottom:18px}}
-
-.forgot-password{display:block;margin-top:12px;padding:8px 0;border:0;background:transparent;color:var(--wine);font-weight:700;text-decoration:underline;cursor:pointer}
-#recoveryPanel input{display:block;width:100%;margin:8px 0 14px;padding:14px;border:1px solid var(--line);font:inherit}
-
-/* Cartões rosados dos serviços — mantém textos, fontes e preços originais */
-.service-grid{gap:18px}
-.service-card{
-  appearance:none;
-  position:relative;
-  overflow:hidden;
-  background:linear-gradient(145deg,#fff9fb 0%,#fbeaf0 100%);
-  border:1px solid #e8c5d0;
-  border-radius:18px;
-  padding:25px 23px;
-  min-height:170px;
-  box-shadow:0 9px 24px rgba(120,54,79,.09);
-  color:var(--ink);
-  text-align:left;
-}
-.service-card:before{
-  content:"";
-  position:absolute;
-  top:0;left:0;right:0;
-  height:5px;
-  background:linear-gradient(90deg,#d99aaa,#c5a052,#e8b9c7);
-}
-.service-card .service-mark{color:#c98298;font-size:30px}
-.service-card h3{color:#78364f;font:600 22px "Cormorant Garamond",Georgia,serif;margin:9px 0 7px}
-.service-card p{color:#8b6c78;font-size:12px;line-height:1.6;margin:0 0 13px}
-.service-card .preco{
-  display:inline-block;
-  margin-top:5px;
-  padding:8px 14px;
-  border-radius:999px;
-  background:#f2d8e1;
-  border:1px solid #e7bdcb;
-  color:#71334b;
-  font-size:15px;
-}
-.service-card .choose-service{
-  display:block;
-  margin-top:15px;
-  color:#a65f78;
-  font-size:10px;
-  font-weight:700;
-  letter-spacing:1.3px;
-}
-.service-card:hover{
-  transform:translateY(-4px);
-  border-color:#d99aaa;
-  box-shadow:0 14px 30px rgba(120,54,79,.15);
-}
-.service-card:focus-visible{outline:3px solid #d99aaa;outline-offset:3px}
-
 </style>
 </head>
 <body>
@@ -264,7 +204,7 @@ footer .dourado{color:var(--gold-light);letter-spacing:5px}
 </div>
 <div class="hero-art">
 <div class="hero-frame">
-<img alt="Foto principal dos trabalhos de Anna Gabrielly" id="annaHeroPhoto" decoding="async" loading="eager" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 700'%3E%3Crect width='600' height='700' fill='%23eadde0'/%3E%3Ctext x='300' y='330' text-anchor='middle' fill='%23641d35' font-size='34' font-family='Georgia'%3EFoto da Anna%3C/text%3E%3Ctext x='300' y='380' text-anchor='middle' fill='%23641d35' font-size='20'%3EAdicione pelo painel administrativo%3C/text%3E%3C/svg%3E"/>
+<img alt="Trabalho de unhas em esmaltação vinho feito por Anna Gabrielly" decoding="async" loading="eager" src="unhas-destaque.jpg"/>
 </div>
 <div class="hero-stamp">Beleza em cada detalhe ✦</div>
 </div>
@@ -297,15 +237,11 @@ footer .dourado{color:var(--gold-light);letter-spacing:5px}
 <div class="gold-line"></div>
 <p>Cada unha recebe atenção especial. Confira alguns resultados feitos pela Anna.</p>
 </div>
-<div class="gallery-grid" id="annaGalleryPublica">
-<figure class="gallery-item gallery-placeholder">
-  <div class="gallery-placeholder-inner">
-    <span aria-hidden="true">✦</span>
-    <strong>Galeria da Anna</strong>
-    <small>As fotos dos trabalhos serão adicionadas pela administração.</small>
-  </div>
-</figure>
-</div>
+<div class="gallery-grid">
+
+<figure class="gallery-item"><img alt="Unhas pretas com glitter e pedrarias" decoding="async" loading="lazy" src="galeria-unhas-1.jpg"/><figcaption>Brilho &amp; sofisticação</figcaption></figure>
+<figure class="gallery-item"><img alt="Unhas nude com francesinha amarela" decoding="async" loading="lazy" src="galeria-unhas-2.jpg"/><figcaption>Delicadeza colorida</figcaption></figure>
+<figure class="gallery-item"><img alt="Unhas decoradas com esmaltação artística" decoding="async" loading="lazy" src="galeria-unhas-3.jpg"/><figcaption>Arte em cada detalhe</figcaption></figure>
 </div>
 </div>
 </section>
@@ -323,21 +259,8 @@ footer .dourado{color:var(--gold-light);letter-spacing:5px}
 <p class="small">A confirmação do pagamento é feita pela profissional.</p>
 </div>
 </div>
-</section><section class="content-section pix-info-section" id="pix-info">
-<div class="container">
-<div class="pix-public-card">
-<div class="eyebrow">Facilidade para você</div>
-<h2>Pagamento via Pix</h2>
-<p>Faça sua reserva e utilize a chave Pix abaixo para realizar o pagamento. A confirmação é feita pela Anna.</p>
-<div class="pix-public-key"><span>CHAVE PIX — CELULAR</span><strong id="pixPublicKey">+55 11 95455-6081</strong></div>
-<div class="pix-public-actions">
-<button class="btn" onclick="copiarPix()" type="button">COPIAR CHAVE PIX</button>
-<a class="btn btn-outline" href="https://wa.me/5511954556081?text=Ol%C3%A1%2C%20Anna!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20agendamento." rel="noopener" target="_blank">FALAR COM A ANNA</a>
-</div>
-<p class="small">Após o pagamento, envie o comprovante pelo WhatsApp.</p>
-</div>
-</div>
-</section><section class="content-section booking-area" id="agendamento">
+</section>
+<section class="content-section booking-area" id="agendamento">
 <div class="container">
 <div class="section-heading">
 <div class="eyebrow">Reserve seu momento</div>
@@ -388,13 +311,6 @@ footer .dourado{color:var(--gold-light);letter-spacing:5px}
 <label for="emailAdmin">E-mail administrativo</label><input id="emailAdmin" placeholder="E-mail" type="email"/>
 <label for="senhaAdmin">Senha</label><input id="senhaAdmin" placeholder="Senha" type="password"/>
 <button class="btn" onclick="entrarAdmin()">ENTRAR</button>
-<button class="forgot-password" type="button" onclick="recuperarSenhaAdmin()">ESQUECI MINHA SENHA</button>
-</div>
-<div class="hidden" id="recoveryPanel">
-<h3>Definir nova senha</h3>
-<label for="novaSenhaAdmin">Nova senha</label><input id="novaSenhaAdmin" type="password" placeholder="Digite a nova senha" autocomplete="new-password"/>
-<label for="confirmarNovaSenhaAdmin">Confirmar nova senha</label><input id="confirmarNovaSenhaAdmin" type="password" placeholder="Digite novamente" autocomplete="new-password"/>
-<button class="btn" type="button" onclick="salvarNovaSenhaAdmin()">SALVAR NOVA SENHA</button>
 </div>
 <div class="hidden" id="painel">
 <h3>Agendamentos</h3><button class="btn" onclick="carregarAdmin()">ATUALIZAR LISTA</button>
@@ -402,12 +318,22 @@ footer .dourado{color:var(--gold-light);letter-spacing:5px}
 
 <div class="admin-site-manager" id="adminSiteManager">
 <hr/>
-<h3>Gerenciar o site</h3>
+<h3>Gerenciar o site</h3><p class="small">Anna pode atualizar fotos, horários de atendimento, serviços e preços por aqui.</p>
 <div class="admin-manager-block">
-<h4>Foto principal do site</h4>
-<p class="small">Escolha a foto grande que aparece na página inicial. Você poderá trocá-la quando quiser.</p>
+<h4>Foto de fundo principal</h4>
+<p class="small">Escolha uma foto do celular para substituir o fundo vinho por uma imagem profissional. Envie um arquivo JPG ou PNG de até 8 MB.</p>
 <input accept="image/*" id="annaHeroFile" type="file"/>
-<button class="btn" onclick="uploadFotoPrincipal()" type="button">ATUALIZAR FOTO PRINCIPAL</button>
+<button class="btn" onclick="uploadFotoPrincipal()" type="button">ALTERAR FOTO DE FUNDO</button>
+</div>
+<div class="admin-manager-block">
+<h4>Horários de atendimento</h4>
+<p class="small">Anna pode adicionar horários por dia da semana e remover horários que não atende mais.</p>
+<label for="novoHorarioDia">Dia da semana</label>
+<select id="novoHorarioDia"><option value="0">Domingo</option><option value="1">Segunda-feira</option><option value="2">Terça-feira</option><option value="3">Quarta-feira</option><option value="4">Quinta-feira</option><option value="5">Sexta-feira</option><option value="6">Sábado</option></select>
+<label for="novoHorarioHora">Horário</label>
+<input id="novoHorarioHora" type="time" value="09:00"/>
+<button class="btn" onclick="adicionarHorario()" type="button">ADICIONAR HORÁRIO</button>
+<div id="adminHorarios"></div>
 </div>
 <div class="admin-manager-block">
 <h4>Foto de perfil da Anna</h4>
@@ -417,9 +343,15 @@ footer .dourado{color:var(--gold-light);letter-spacing:5px}
 </div>
 <div class="admin-manager-block">
 <h4>Adicionar fotos à galeria</h4>
-<p class="small">Selecione uma ou várias fotos dos trabalhos da Anna. Elas serão exibidas na galeria pública.</p>
-<label for="annaGalleryFiles">Fotos</label>
-<input accept="image/*" id="annaGalleryFiles" type="file" multiple/>
+<p class="small">Adicione até 5 fotos por envio diretamente da galeria do celular. Elas serão exibidas na galeria pública.</p>
+<label>Escolha até 5 fotos, uma em cada espaço</label>
+<div class="gallery-upload-slots">
+<input accept="image/*" id="annaGalleryFile1" type="file" aria-label="Foto da galeria 1"/>
+<input accept="image/*" id="annaGalleryFile2" type="file" aria-label="Foto da galeria 2"/>
+<input accept="image/*" id="annaGalleryFile3" type="file" aria-label="Foto da galeria 3"/>
+<input accept="image/*" id="annaGalleryFile4" type="file" aria-label="Foto da galeria 4"/>
+<input accept="image/*" id="annaGalleryFile5" type="file" aria-label="Foto da galeria 5"/>
+</div>
 <label for="annaGalleryCaption">Legenda (opcional)</label>
 <input id="annaGalleryCaption" placeholder="Ex.: Esmaltação em gel"/>
 <button class="btn" onclick="uploadFotosGaleria()" type="button">ENVIAR FOTOS</button>
@@ -652,34 +584,6 @@ function whatsappPagamento(){
  window.open('https://wa.me/'+numero+'?text='+encodeURIComponent(mensagem),'_blank');
 }
 
-// RECUPERAÇÃO DE SENHA DO PAINEL ADMINISTRATIVO
-async function recuperarSenhaAdmin(){
- const email=$('emailAdmin').value.trim();
- if(!email){alert('Digite primeiro o e-mail administrativo para receber o link de recuperação.');$('emailAdmin').focus();return;}
- const redirectTo=window.location.origin+window.location.pathname;
- const {error}=await db.auth.resetPasswordForEmail(email,{redirectTo});
- if(error){console.error('Erro ao solicitar recuperação:',error);alert('Não foi possível enviar o e-mail de recuperação. Confira o endereço e as configurações de recuperação de senha do Supabase.');return;}
- alert('Se esse e-mail estiver cadastrado, o Supabase enviará um link para criar uma nova senha. Verifique também a caixa de spam.');
-}
-
-async function salvarNovaSenhaAdmin(){
- const senha=$('novaSenhaAdmin').value;
- const confirmar=$('confirmarNovaSenhaAdmin').value;
- if(!senha||senha.length<6){alert('A nova senha deve ter pelo menos 6 caracteres.');return;}
- if(senha!==confirmar){alert('As senhas não são iguais.');return;}
- const {error}=await db.auth.updateUser({password:senha});
- if(error){console.error('Erro ao atualizar senha:',error);alert('Não foi possível atualizar a senha. Abra novamente o link recebido por e-mail e tente outra vez.');return;}
- $('novaSenhaAdmin').value='';$('confirmarNovaSenhaAdmin').value='';
- $('recoveryPanel').classList.add('hidden');$('login').classList.remove('hidden');
- alert('Senha atualizada! Agora entre no painel com a nova senha.');
-}
-
-db.auth.onAuthStateChange((event)=>{
- if(event==='PASSWORD_RECOVERY'){
-  $('login').classList.add('hidden');$('painel').classList.add('hidden');$('recoveryPanel').classList.remove('hidden');
- }
-});
-
 // PAINEL ADMINISTRATIVO
 async function entrarAdmin(){
  const email=$('emailAdmin').value.trim();
@@ -692,6 +596,7 @@ async function entrarAdmin(){
  carregarAdmin();
  listarServicosAdmin();
  listarGaleriaAdmin();
+ listarHorariosAdmin();
 }
 
 async function carregarAdmin(){
@@ -751,13 +656,12 @@ async function listarServicosAdmin(){
  (data||[]).forEach(s=>{
   const row=document.createElement('div');row.className='admin-service-row';
   const label=document.createElement('span');label.textContent=s.name+' — R$ '+Number(s.price).toFixed(2).replace('.',',')+(s.active?' · Ativo':' · Inativo');
+  const priceInput=document.createElement('input');priceInput.type='number';priceInput.min='0';priceInput.step='0.01';priceInput.value=Number(s.price).toFixed(2);priceInput.setAttribute('aria-label','Novo preço de '+s.name);priceInput.style.maxWidth='130px';
+  const savePrice=document.createElement('button');savePrice.type='button';savePrice.className='btn';savePrice.textContent='SALVAR PREÇO';
+  savePrice.onclick=async()=>{const value=Number(priceInput.value);if(!Number.isFinite(value)||value<0){alert('Informe um preço válido.');return;}const {error}=await db.from('services').update({price:value}).eq('id',s.id);if(error){console.error(error);alert('Não foi possível alterar o preço. Confira as permissões da tabela services.');return;}alert('Preço atualizado!');await iniciar();listarServicosAdmin();};
   const toggle=document.createElement('button');toggle.type='button';toggle.className='btn';toggle.textContent=s.active?'DESATIVAR':'ATIVAR';
-  toggle.onclick=async()=>{
-   const {error}=await db.from('services').update({active:!s.active}).eq('id',s.id);
-   if(error){alert('Não foi possível alterar o serviço. Verifique as permissões.');return;}
-   await iniciar();listarServicosAdmin();
-  };
-  row.append(label,toggle);area.append(row);
+  toggle.onclick=async()=>{const {error}=await db.from('services').update({active:!s.active}).eq('id',s.id);if(error){alert('Não foi possível alterar o serviço. Verifique as permissões.');return;}await iniciar();listarServicosAdmin();};
+  row.append(label,priceInput,savePrice,toggle);area.append(row);
  });
 }
 
@@ -766,11 +670,8 @@ async function carregarGaleria(){
  if(!area)return;
  const {data,error}=await db.from('gallery').select('id,image_url,caption,active,sort_order').eq('active',true).order('sort_order').order('created_at');
  if(error){console.error('Erro ao carregar galeria:',error);return;}
- // Sem fotos cadastradas, mantém o quadro de exemplo para a administração preencher.
- if(!data||!data.length){
-  area.innerHTML='<figure class="gallery-item gallery-placeholder"><div class="gallery-placeholder-inner"><span aria-hidden="true">✦</span><strong>Galeria da Anna</strong><small>As fotos dos trabalhos serão adicionadas pela administração.</small></div></figure>';
-  return;
- }
+ // Se ainda não houver fotos cadastradas, preserva as imagens demonstrativas já existentes.
+ if(!data||!data.length)return;
  area.innerHTML='';
  data.forEach(item=>{
   const figure=document.createElement('figure');figure.className='gallery-item';
@@ -781,9 +682,10 @@ async function carregarGaleria(){
 }
 
 async function uploadFotosGaleria(){
- const input=$('annaGalleryFiles');
- const files=Array.from(input?.files||[]);
+ const inputs=[1,2,3,4,5].map(n=>$('annaGalleryFile'+n));
+ const files=inputs.map(input=>input?.files?.[0]).filter(Boolean);
  if(!files.length){alert('Selecione pelo menos uma foto.');return;}
+ if(files.length>5){alert('Selecione no máximo 5 fotos por envio.');return;}
  const {data:sessionData}=await db.auth.getSession();
  if(!sessionData?.session){alert('Entre na área administrativa antes de enviar fotos.');return;}
  const legenda=$('annaGalleryCaption').value.trim();
@@ -802,7 +704,7 @@ async function uploadFotosGaleria(){
    const {error:insertError}=await db.from('gallery').insert({image_url:urlData.publicUrl,caption:legenda||file.name.replace(/\.[^.]+$/,''),active:true,sort_order:Date.now()+i});
    if(insertError)throw insertError;
   }
-  input.value='';$('annaGalleryCaption').value='';
+  inputs.forEach(input=>{if(input)input.value='';});$('annaGalleryCaption').value='';
   alert('Fotos adicionadas à galeria!');
   await carregarGaleria();await listarGaleriaAdmin();
  }catch(error){
@@ -831,40 +733,40 @@ async function listarGaleriaAdmin(){
  });
 }
 
-async function uploadFotoPrincipal(){
- const file=$('annaHeroFile')?.files?.[0];
- if(!file){alert('Escolha uma foto para a página inicial.');return;}
- if(!file.type.startsWith('image/')){alert('Selecione um arquivo de imagem.');return;}
- if(file.size>8*1024*1024){alert('A foto deve ter no máximo 8 MB.');return;}
- const {data:sessionData}=await db.auth.getSession();
- if(!sessionData?.session){alert('Entre na área administrativa antes de enviar a foto.');return;}
- const botao=document.querySelector('#adminSiteManager button[onclick="uploadFotoPrincipal()"]');
- if(botao){botao.disabled=true;botao.textContent='ENVIANDO...';}
- try{
-  const ext=(file.name.split('.').pop()||'jpg').toLowerCase().replace(/[^a-z0-9]/g,'')||'jpg';
-  const path='anna-hero.'+ext;
-  const {error}=await db.storage.from('site-assets').upload(path,file,{upsert:true,contentType:file.type});
-  if(error)throw error;
-  const {data}=db.storage.from('site-assets').getPublicUrl(path);
-  const url=data.publicUrl+'?v='+Date.now();
-  const photo=$('annaHeroPhoto');if(photo)photo.src=url;
-  alert('Foto principal atualizada! Ela já aparece na página inicial.');
-  $('annaHeroFile').value='';
- }catch(error){
-  console.error('Erro ao atualizar foto principal:',error);
-  alert('Não foi possível enviar a foto. Confira se existe o bucket público site-assets no Supabase Storage e se usuários autenticados têm permissão de upload e atualização. Detalhe: '+(error.message||'erro desconhecido'));
- }finally{if(botao){botao.disabled=false;botao.textContent='ATUALIZAR FOTO PRINCIPAL';}}
+async function listarHorariosAdmin(){
+ const area=$('adminHorarios');if(!area)return;
+ const {data,error}=await db.from('business_hours').select('*').order('weekday').order('available_time');
+ if(error){area.textContent='Não foi possível listar os horários. Confira as permissões da tabela business_hours.';console.error(error);return;}
+ area.innerHTML='';
+ const dias=['Domingo','Segunda-feira','Terça-feira','Quarta-feira','Quinta-feira','Sexta-feira','Sábado'];
+ (data||[]).forEach(item=>{
+  const row=document.createElement('div');row.className='admin-service-row';
+  const label=document.createElement('span');label.textContent=(dias[Number(item.weekday)]||'Dia')+' — '+String(item.available_time).slice(0,5)+(item.active?' · Ativo':' · Inativo');
+  const toggle=document.createElement('button');toggle.type='button';toggle.className='btn';toggle.textContent=item.active?'DESATIVAR':'ATIVAR';
+  toggle.onclick=async()=>{const {error}=await db.from('business_hours').update({active:!item.active}).eq('id',item.id);if(error){alert('Não foi possível alterar esse horário.');return;}await iniciar();await listarHorariosAdmin();};
+  const del=document.createElement('button');del.type='button';del.className='btn';del.textContent='EXCLUIR';
+  del.onclick=async()=>{if(!confirm('Excluir este horário?'))return;const {error}=await db.from('business_hours').delete().eq('id',item.id);if(error){alert('Não foi possível excluir.');return;}await iniciar();await listarHorariosAdmin();};
+  row.append(label,toggle,del);area.append(row);
+ });
 }
 
-async function carregarFotoPrincipal(){
- try{
-  const {data:files,error}=await db.storage.from('site-assets').list('',{search:'anna-hero'});
-  if(error||!files?.length)return;
-  const arquivo=files.find(f=>f.name.startsWith('anna-hero.'));
-  if(!arquivo)return;
-  const {data}=db.storage.from('site-assets').getPublicUrl(arquivo.name);
-  if(data?.publicUrl&&$('annaHeroPhoto'))$('annaHeroPhoto').src=data.publicUrl+'?v='+Date.now();
- }catch(e){console.error('Não foi possível carregar a foto principal:',e);}
+async function adicionarHorario(){
+ const weekday=Number($('novoHorarioDia').value);const time=$('novoHorarioHora').value;
+ if(!time){alert('Escolha um horário.');return;}
+ const {error}=await db.from('business_hours').insert({weekday,available_time:time+':00',active:true});
+ if(error){console.error(error);alert('Não foi possível adicionar. Confira as permissões da tabela business_hours e se esse horário já existe.');return;}
+ alert('Horário adicionado!');await iniciar();await listarHorariosAdmin();
+}
+
+async function uploadFotoPrincipal(){
+ const file=$('annaHeroFile')?.files?.[0];if(!file){alert('Escolha uma foto primeiro.');return;}
+ if(!file.type.startsWith('image/')){alert('Selecione uma imagem.');return;}if(file.size>8*1024*1024){alert('A imagem deve ter até 8 MB.');return;}
+ const {data:sessionData}=await db.auth.getSession();if(!sessionData?.session){alert('Entre no painel antes de alterar a foto.');return;}
+ const ext=(file.name.split('.').pop()||'jpg').toLowerCase().replace(/[^a-z0-9]/g,'')||'jpg';
+ const path='site-hero.jpg';const {error}=await db.storage.from('site-assets').upload(path,file,{upsert:true,contentType:file.type});
+ if(error){console.error(error);alert('Não foi possível enviar. Confira se o bucket público site-assets existe e permite upload para usuários autenticados.');return;}
+ const {data}=db.storage.from('site-assets').getPublicUrl(path);document.querySelector('header').style.background='linear-gradient(90deg,rgba(42,7,22,.88),rgba(72,10,31,.58)),url("'+data.publicUrl+'?v='+Date.now()+'") center/cover no-repeat';
+ alert('Foto de fundo atualizada. Para manter a imagem em todos os visitantes, o site usa o arquivo do Storage.');
 }
 
 async function uploadFotoAnna(){
@@ -883,6 +785,11 @@ async function uploadFotoAnna(){
  alert('Foto de perfil atualizada para todos os visitantes!');
 }
 
+async function carregarFotoFundo(){
+ try{const {data}=db.storage.from('site-assets').getPublicUrl('site-hero.jpg');if(data?.publicUrl){const img=new Image();img.onload=()=>{document.querySelector('header').style.background='linear-gradient(90deg,rgba(42,7,22,.88),rgba(72,10,31,.58)),url("'+data.publicUrl+'?v='+Date.now()+'") center/cover no-repeat';};img.src=data.publicUrl+'?v='+Date.now();}}
+ catch(e){console.warn('Foto de fundo personalizada ainda não configurada.',e);}
+}
+
 async function carregarFotoPerfil(){
  try{
   const {data}=db.storage.from('site-assets').getPublicUrl('anna-profile.jpg');
@@ -891,7 +798,7 @@ async function carregarFotoPerfil(){
 }
 
 carregarFotoPerfil();
-carregarFotoPrincipal();
+carregarFotoFundo();
 iniciar();
 </script>
 </body>
